@@ -12,7 +12,7 @@ services:
   certbot_trello:
     image: certbot/certbot
     depends_on:
-      - application
+      - nginx-proxy
     volumes:
       - web-root:/var/www/html
       - certbot-etc:/etc/letsencrypt
