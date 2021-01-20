@@ -2,13 +2,12 @@ version: "3.8"
 
 services:
   caddy:
-    image: caddy:2-alpine
     restart: unless-stopped
+    build: .
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy-data:/data
       - caddy-config:/config
     network_mode: host

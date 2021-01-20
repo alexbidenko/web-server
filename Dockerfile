@@ -1,4 +1,3 @@
-FROM nginx:stable-alpine
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-COPY ./index.html /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
+FROM caddy:2-alpine
+RUN mkdir -p /data/caddy
+COPY ./Caddyfile /etc/caddy
