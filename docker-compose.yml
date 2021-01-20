@@ -3,6 +3,7 @@ version: "3.8"
 services:
   caddy:
     restart: unless-stopped
+    container_name: caddy
     build: .
     ports:
       - "80:80"
@@ -10,8 +11,12 @@ services:
     volumes:
       - caddy-data:/data
       - caddy-config:/config
-    network_mode: host
 
 volumes:
   caddy-data:
   caddy-config:
+
+networks:
+  default:
+    external:
+      name: server

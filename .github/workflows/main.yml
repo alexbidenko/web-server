@@ -21,4 +21,8 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
 
       - name: Deploy 🚀
-        run: DOCKER_HOST="ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" docker-compose up -d --build --remove-orphans
+        run: |
+          docker network create --driver bridge server || true
+          docker-compose up -d --build --remove-orphans
+        env:
+          DOCKER_HOST: ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
