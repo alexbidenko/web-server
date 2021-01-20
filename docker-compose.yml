@@ -1,30 +1,18 @@
 version: "3.8"
 
 services:
-  nginx-proxy:
-    image: nginx:stable-alpine
-    container_name: nginx-proxy
-    build: .
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - web-root:/usr/share/nginx/html
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy-data:/data
+      - caddy-config:/config
     network_mode: host
 
-  certbot_trello:
-    image: certbot/certbot
-    depends_on:
-      - nginx-proxy
-    volumes:
-      - web-root:/usr/share/nginx/html
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-    command: certonly --webroot --webroot-path=/usr/share/nginx/html --email alexbidenko1998@gmail.com --agree-tos --no-eff-email --force-renewal -d trello.admire.social -d www.trello.admire.social
-
 volumes:
-  certbot-etc:
-  certbot-var:
-  web-root:
+  caddy-data:
+  caddy-config:

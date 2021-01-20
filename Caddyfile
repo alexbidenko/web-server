@@ -1,0 +1,6 @@
+{
+    email alexbidenko1998@gmail.com
+}
+trello.admire.social {
+    reverse_proxy 127.0.0.1:5880
+}
