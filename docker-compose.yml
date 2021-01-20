@@ -8,16 +8,23 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - web-root:/usr/share/nginx/html
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    network_mode: host
 
   certbot_trello:
     image: certbot/certbot
     depends_on:
       - nginx-proxy
     volumes:
+      - web-root:/usr/share/nginx/html
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
-    command: certonly --webroot --email alexbidenko1998@gmail.com --agree-tos --no-eff-email --staging -d trello.admire.social -d www.trello.admire.social
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html --email alexbidenko1998@gmail.com --agree-tos --no-eff-email --force-renewal -d trello.admire.social -d www.trello.admire.social
 
 volumes:
   certbot-etc:
   certbot-var:
+  web-root:
