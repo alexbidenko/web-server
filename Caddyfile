@@ -7,7 +7,7 @@ trello.admire.social {
 www.trello.admire.social {
     redir https://trello.admire.social{uri}
 }
-demo_*.admire.social {
+demo-*.admire.social {
     tls internal
     reverse_proxy {labels.2}:80
 }
