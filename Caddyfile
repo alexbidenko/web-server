@@ -7,6 +7,15 @@ trello.admire.social {
 www.trello.admire.social {
     redir https://trello.admire.social{uri}
 }
-:80 {
-    reverse_proxy {labels.2}:80
+rguide.admire.social {
+    reverse_proxy rguide_frontend:80
+}
+www.rguide.admire.social {
+    redir https://rguide.admire.social{uri}
+}
+api-rguide.admire.social {
+    reverse_proxy rguide_backend:80
+}
+www.api-rguide.admire.social {
+    redir https://api-rguide.admire.social{uri}
 }
