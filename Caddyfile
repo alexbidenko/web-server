@@ -1,6 +1,18 @@
 {
     email alexbidenko1998@gmail.com
 }
+www.grow-heads.com {
+    redir https://grow-heads.ru{uri}
+}
+grow-heads.com {
+    redir https://grow-heads.ru{uri}
+}
+www.grow-heads.ru {
+    redir https://grow-heads.ru{uri}
+}
+grow-heads.ru {
+    reverse_proxy grow_heads:80
+}
 :80 {
     reverse_proxy container_{labels.3}:80
 }
