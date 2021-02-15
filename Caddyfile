@@ -2,5 +2,5 @@
     email alexbidenko1998@gmail.com
 }
 :80 {
-    reverse_proxy {labels.3}:80
+    reverse_proxy container_{labels.3}:80
 }
