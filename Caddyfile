@@ -25,6 +25,3 @@ djoker.admire.social {
 www.djoker.admire.social {
     redir https://djoker.admire.social{uri}
 }
-:80 {
-    reverse_proxy {labels.2}:80
-}
