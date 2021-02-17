@@ -1,18 +1,18 @@
 {
-    email alexbidenko1998@gmail.com
+    email server@mstagency.ru
 }
-www.grow-heads.com {
-    redir https://grow-heads.ru{uri}
+www.growheads.com {
+    redir https://growheads.ru{uri}
 }
-grow-heads.com {
-    redir https://grow-heads.ru{uri}
+growheads.com {
+    redir https://growheads.ru{uri}
 }
-www.grow-heads.ru {
-    redir https://grow-heads.ru{uri}
+www.growheads.ru {
+    redir https://growheads.ru{uri}
 }
-grow-heads.ru {
+growheads.ru {
     reverse_proxy grow_heads:80
 }
 :80 {
-    reverse_proxy container_{labels.3}:80
+    reverse_proxy container_{labels.2}:80
 }
