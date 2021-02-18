@@ -14,8 +14,5 @@ growheads.ru {
     reverse_proxy grow_heads:80
 }
 http://*.growheads.ru {
-    redir https://{host}{uri}
-}
-https://*.growheads.ru {
     reverse_proxy container_{labels.2}:80
 }
