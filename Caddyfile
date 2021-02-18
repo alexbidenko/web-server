@@ -13,6 +13,6 @@ www.growheads.ru {
 growheads.ru {
     reverse_proxy grow_heads:80
 }
-:80 {
+*.growheads.com {
     reverse_proxy container_{labels.2}:80
 }
