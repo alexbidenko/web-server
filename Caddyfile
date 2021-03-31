@@ -25,3 +25,9 @@ djoker.admire.social {
 www.djoker.admire.social {
     redir https://djoker.admire.social{uri}
 }
+aumsu-portal.admire.social {
+    reverse_proxy aumsu_backend:80
+}
+www.aumsu-portal.admire.social {
+    redir https://aumsu-portal.admire.social{uri}
+}
