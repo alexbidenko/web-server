@@ -31,3 +31,9 @@ aumsu-portal.admire.social {
 www.aumsu-portal.admire.social {
     redir https://aumsu-portal.admire.social{uri}
 }
+chinchillas-show.com {
+    reverse_proxy chinhillas_show:80
+}
+www.chinchillas-show.com {
+    redir https://chinchillas-show.com{uri}
+}
