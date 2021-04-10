@@ -19,6 +19,18 @@ api-rguide.admire.social {
 www.api-rguide.admire.social {
     redir https://api-rguide.admire.social{uri}
 }
+admes.admire.social {
+    reverse_proxy admes_frontend:80
+}
+www.admes.admire.social {
+    redir https://admes.admire.social{uri}
+}
+api-admes.admire.social {
+    reverse_proxy admes_backend:80
+}
+www.api-admes.admire.social {
+    redir https://api-admes.admire.social{uri}
+}
 djoker.admire.social {
     reverse_proxy djoker_backend:80
 }
