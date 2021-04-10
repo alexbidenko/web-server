@@ -14,11 +14,6 @@ www.rguide.admire.social {
     redir https://rguide.admire.social{uri}
 }
 api-rguide.admire.social {
-    @websockets {
-        header_regexp Connection Upgrade
-        header        Upgrade websocket
-    }
-    reverse_proxy @websockets rguide_backend:80
     reverse_proxy rguide_backend:80
 }
 www.api-rguide.admire.social {
@@ -31,6 +26,11 @@ www.admes.admire.social {
     redir https://admes.admire.social{uri}
 }
 api-admes.admire.social {
+    @websockets {
+        header_regexp Connection Upgrade
+        header        Upgrade websocket
+    }
+    reverse_proxy @websockets admes_backend:80
     reverse_proxy admes_backend:80
 }
 www.api-admes.admire.social {
