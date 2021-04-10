@@ -30,8 +30,8 @@ api-admes.admire.social {
         header_regexp Connection Upgrade
         header        Upgrade websocket
     }
-    reverse_proxy @websockets admes_backend:80
-    reverse_proxy admes_backend:80
+    reverse_proxy @websockets admes_backend:7777
+    reverse_proxy admes_backend:7777
 }
 www.api-admes.admire.social {
     redir https://api-admes.admire.social{uri}
