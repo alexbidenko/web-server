@@ -54,3 +54,15 @@ chinchillas-show.com {
 www.chinchillas-show.com {
     redir https://chinchillas-show.com{uri}
 }
+api-cyber-garden.admire.social {
+    reverse_proxy cyber_garden_backend:80
+}
+www.api-cyber-garden.admire.social {
+    redir https://api-cyber-garden.admire.social{uri}
+}
+cyber-garden.admire.social {
+    reverse_proxy cyber_garden_frontend:80
+}
+www.cyber-garden.admire.social {
+    redir https://cyber-garden.admire.social{uri}
+}
