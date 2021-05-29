@@ -66,3 +66,11 @@ cyber-garden.admire.social {
 www.cyber-garden.admire.social {
     redir https://cyber-garden.admire.social{uri}
 }
+ws-cyber-garden.admire.social {
+    @websockets {
+        header_regexp Connection Upgrade
+        header        Upgrade websocket
+    }
+    reverse_proxy @websockets cyber_garden_websocket:80
+    reverse_proxy cyber_garden_websocket:80
+}
