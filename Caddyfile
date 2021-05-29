@@ -66,7 +66,7 @@ cyber-garden.admire.social {
 www.cyber-garden.admire.social {
     redir https://cyber-garden.admire.social{uri}
 }
-http://ws-cyber-garden.admire.social {
+ws-cyber-garden.admire.social {
     @websockets {
         header_regexp Connection Upgrade
         header        Upgrade websocket
