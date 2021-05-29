@@ -1,47 +1,47 @@
 {
     email alexbidenko1998@gmail.com
 }
-#trello.admire.social {
-#    reverse_proxy admire_trello:80
-#}
-#www.trello.admire.social {
-#    redir https://trello.admire.social{uri}
-#}
-#rguide.admire.social {
-#    reverse_proxy rguide_frontend:80
-#}
-#www.rguide.admire.social {
-#    redir https://rguide.admire.social{uri}
-#}
-#api-rguide.admire.social {
-#    reverse_proxy rguide_backend:80
-#}
-#www.api-rguide.admire.social {
-#    redir https://api-rguide.admire.social{uri}
-#}
-#admes.admire.social {
-#    reverse_proxy admes_frontend:80
-#}
-#www.admes.admire.social {
-#    redir https://admes.admire.social{uri}
-#}
-#api-admes.admire.social {
-#    @websockets {
-#        header_regexp Connection Upgrade
-#        header        Upgrade websocket
-#    }
-#    reverse_proxy @websockets admes_backend:7777
-#    reverse_proxy admes_backend:7777
-#}
-#www.api-admes.admire.social {
-#    redir https://api-admes.admire.social{uri}
-#}
-#djoker.admire.social {
-#    reverse_proxy djoker_backend:80
-#}
-#www.djoker.admire.social {
-#    redir https://djoker.admire.social{uri}
-#}
+trello.admire.social {
+    reverse_proxy admire_trello:80
+}
+www.trello.admire.social {
+    redir https://trello.admire.social{uri}
+}
+rguide.admire.social {
+    reverse_proxy rguide_frontend:80
+}
+www.rguide.admire.social {
+    redir https://rguide.admire.social{uri}
+}
+api-rguide.admire.social {
+    reverse_proxy rguide_backend:80
+}
+www.api-rguide.admire.social {
+    redir https://api-rguide.admire.social{uri}
+}
+admes.admire.social {
+    reverse_proxy admes_frontend:80
+}
+www.admes.admire.social {
+    redir https://admes.admire.social{uri}
+}
+api-admes.admire.social {
+    @websockets {
+        header_regexp Connection Upgrade
+        header        Upgrade websocket
+    }
+    reverse_proxy @websockets admes_backend:7777
+    reverse_proxy admes_backend:7777
+}
+www.api-admes.admire.social {
+    redir https://api-admes.admire.social{uri}
+}
+djoker.admire.social {
+    reverse_proxy djoker_backend:80
+}
+www.djoker.admire.social {
+    redir https://djoker.admire.social{uri}
+}
 aumsu-portal.admire.social {
     reverse_proxy aumsu_backend:80
 }
@@ -55,6 +55,9 @@ www.chinchillas-show.com {
     redir https://chinchillas-show.com{uri}
 }
 api-cyber-garden.admire.social {
+    route /api/* {
+        reverse_proxy cyber_garden_websocket:80
+    }
     reverse_proxy cyber_garden_backend:8000
 }
 www.api-cyber-garden.admire.social {
