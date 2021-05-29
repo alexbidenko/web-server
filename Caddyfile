@@ -1,3 +1,12 @@
+(cors) {
+    @options {
+      method OPTIONS
+    }
+    header Access-Control-Allow-Origin "*"
+    header Access-Control-Allow-Methods "GET, POST, PUT, OPTIONS, DELETE, PATCH"
+    header Access-Control-Allow-Headers "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Pragma,Expires,sec-ch-ua,sec-ch-ua-mobile"
+    respond @options 204
+}
 {
     email alexbidenko1998@gmail.com
 }
@@ -56,6 +65,7 @@ www.chinchillas-show.com {
 }
 api-cyber-garden.admire.social {
     route /api/* {
+        import cors
         reverse_proxy cyber_garden_websocket:80
     }
     reverse_proxy cyber_garden_backend:8000
