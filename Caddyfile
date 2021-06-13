@@ -7,6 +7,12 @@ trello.admire.social {
 www.trello.admire.social {
     redir https://trello.admire.social{uri}
 }
+chart.admire.social {
+    reverse_proxy admire_chart:80
+}
+www.chart.admire.social {
+    redir https://chart.admire.social{uri}
+}
 rguide.admire.social {
     reverse_proxy rguide_frontend:80
 }
